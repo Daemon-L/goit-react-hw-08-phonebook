@@ -24,3 +24,9 @@ export const Text = styled.p`
     font-size: 18px;
     font-weight: 500;
 `;
+
+export const ContactList = styled.ul`
+    margin: 24px 0 0 0;
+    padding: 0;
+
+`;

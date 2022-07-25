@@ -1,4 +1,4 @@
-import { ContactItem, Button, Text } from './ContactList.styled'
+import { ContactItem, Button, Text, ContactList } from './ContactList.styled'
 import { useSelector } from 'react-redux';
 import { getContactsFilter } from 'redux/contacts/selectors';
 import { useFetchContactsQuery, useRemoveContactMutation } from 'redux/contacts/contactsApi';
@@ -15,7 +15,7 @@ const ContactsList = () => {
     }
            
     return (
-        <ul>
+        <ContactList>
             {data.map(
                 ({ id, name, phone }) =>
                 name.toLowerCase().indexOf(filter.toLowerCase()) !== -1 && (
@@ -25,7 +25,7 @@ const ContactsList = () => {
                     </ContactItem>
                 )
             )}
-        </ul>
+        </ContactList>
     );
 };
 export default ContactsList;

@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 
 import { filterContacts } from '../../redux/contacts/actions';
 
+import Form from 'react-bootstrap/Form';
+
 const Filter = () => {
     const dispatch = useDispatch();
     const [filter, setFilter] = useState('');
@@ -15,7 +17,11 @@ const Filter = () => {
     return (
         <div >
             <Text>Find contacts by name</Text>
-            <input type="text" value={filter} onChange={evt => setFilter(evt.target.value)}
+            <Form.Control
+                type="text"
+                value={filter}
+                placeholder="Enter name"
+                onChange={evt => setFilter(evt.target.value)}
             />
         </div>
     );

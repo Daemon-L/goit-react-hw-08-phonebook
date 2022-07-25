@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Error } from '../../App.styled.jsx';
+import { Container, Error, Text } from '../../App.styled.jsx';
 import ContactForm from '../ContactForm/Form';
 import ContactsList from '../ContactList/ContactsList';
 import Filter from '../ContactsFilter/Filter';
@@ -15,7 +15,7 @@ export const Phonebook = () => {
 
             <h1>Phonebook</h1>
             <ContactForm />
-            <h2>Contacts</h2>
+            <Text>Contacts</Text>
             <Filter />
 
             {isFetching && <Loader />}
