@@ -1,9 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useCallback, useState } from "react";
-
+import {  useState } from "react";
 import { useDispatch } from "react-redux";
-// import { loginThunk } from '../redux/auth/authSlice';
 
 import { authOperations } from '../redux/auth/authOperations';
 
@@ -49,40 +47,3 @@ export default function Login() {
         </div>
     );
 };
-
-// const Login = () => {
-//     const dispatch = useDispatch();
-//     const [form, setForm] = useState({
-//         email: '',
-//         password: ''
-//     });
-//     const onChange = useCallback(evt => {
-//         setForm(prevForm => ({
-//             ...prevForm,
-//             [evt.target.name]: evt.target.value
-//         }));
-//     }, [setForm]);
-//     const onSubmit = useCallback((evt) => {
-//         evt.preventDefault();
-//         dispatch(loginThunk(form))
-//     }, [form, dispatch]);
-//     return (
-//         <div>
-//             <h2>Login</h2>    
-//             <Form onSubmit={onSubmit}>
-//                 <Form.Group className="mb-3" controlId="formBasicEmail">
-//                     <Form.Label>Email</Form.Label>
-//                     <Form.Control value={form.email} type="email" name='email' placeholder="Enter email" onChange={onChange}/>
-//                 </Form.Group>
-//                 <Form.Group className="mb-3" controlId="formBasicPassword">
-//                     <Form.Label>Password</Form.Label>
-//                     <Form.Control value={form.password} type="password" name='password' placeholder="Password" onChange={onChange}/>
-//                 </Form.Group>
-//                 <Button variant="primary" type="submit">
-//                     Login
-//                 </Button>
-//             </Form>
-//         </div>
-//     );
-// };
-// export default Login;

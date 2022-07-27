@@ -35,13 +35,12 @@ const logOut = createAsyncThunk('auth/logout', async() => {
   } catch (error) {}
 });
 
-// *****************************************************
 const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkIPI) => {
     const state = thunkIPI.getState()
     const persistedToken = state.auth.token;
-  
+
     if (persistedToken === null) {
       console.log('token отсутстыует уходим из fetchCurrentUser');
       return thunkIPI.rejectWithValue(5);
@@ -54,11 +53,10 @@ const fetchCurrentUser = createAsyncThunk(
     } catch (error) {}
   }
 );
-// *****************************************************
 
 export const authOperations = {
   register,
   logIn,
   logOut,
-  // fetchCurrentUser,
+  fetchCurrentUser,
 };

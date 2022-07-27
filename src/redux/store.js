@@ -2,41 +2,25 @@ import filterReducer from './contacts/reducer';
 import { contactsApi } from './contacts/contactsApi';
 
 import storage from 'redux-persist/lib/storage';
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER, } from 'redux-persist';
 
 import { setupListeners } from '@reduxjs/toolkit/query';
 import authReducer from './auth/authSliceNew';
 
-const rootReducer = combineReducers({
-  filter: filterReducer,
-  [contactsApi.reducerPath]: contactsApi.reducer,
-  auth: authReducer,
-});
-
 const persistConfig = {
   key: 'root',
-  version: 1,
+  version: 2,
   storage,
-  // whitelist: ['token']
+  whitelist: ['token']
 }
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
-// const store = configureStore({
-//   reducer: {
-//     filter: filterReducer,
-//     [contactsApi.reducerPath]: contactsApi.reducer,
-//     auth: authReducer,
-//   },
-//   middleware: getDefaultMiddleware => [
-//     ...getDefaultMiddleware(),
-//     contactsApi.middleware,
-//   ],
-// });
-
 const store = configureStore({
-  reducer: persistedReducer,
+  reducer: {
+    filter: filterReducer,
+    [contactsApi.reducerPath]: contactsApi.reducer,
+    auth: persistReducer(persistConfig, authReducer)
+  },
   devTools: true,
 
   middleware: getDefaultMiddleware => getDefaultMiddleware({

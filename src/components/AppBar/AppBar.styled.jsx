@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from "react-router-dom";
 
-// export const Container = styled.div`
-//   padding: 12px 12px 0 12px;
-//   border: 1px solid black;
-// `;
-
 export const Nav = styled.nav`
     min-width:520px;
     display: flex;

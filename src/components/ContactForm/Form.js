@@ -8,7 +8,7 @@ import { Centre } from './Form.styled.jsx'
 
 const ContactForm = () => {
     const { data } = useFetchContactsQuery();
-    const [addContact, { isSuccess: isAdded }] = useAddContactMutation();
+    const [addContact] = useAddContactMutation();
 
     const [name, setName] = useState('');
     const [number, setPhone] = useState('');

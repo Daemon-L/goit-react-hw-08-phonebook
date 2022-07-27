@@ -2,9 +2,11 @@ import { ContactItem, Button, Text, ContactList } from './ContactList.styled'
 import { useSelector } from 'react-redux';
 import { getContactsFilter } from 'redux/contacts/selectors';
 import { useFetchContactsQuery, useRemoveContactMutation } from 'redux/contacts/contactsApi';
+import authSelectors from 'redux/auth/authSelectors';
 
 const ContactsList = () => {
-    const { data, isError } = useFetchContactsQuery();
+    const token = useSelector(authSelectors.getToken)
+    const { data, isError } = useFetchContactsQuery(token);
     const [removeContact] = useRemoveContactMutation();
     const showContactsData = data && !isError;
 

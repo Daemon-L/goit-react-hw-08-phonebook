@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import img from '../../images/simple-white.webp';
 
 export const Container = styled.div`
     

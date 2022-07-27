@@ -31,8 +31,5 @@ export const Button = styled.button`
 `;
 
 export const Centre = styled.div`
-    /* padding: 24px; */
-    
     text-align: center;
-    
 `;
