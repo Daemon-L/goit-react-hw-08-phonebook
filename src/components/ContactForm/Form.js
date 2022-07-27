@@ -3,6 +3,7 @@ import { useAddContactMutation, useFetchContactsQuery } from "redux/contacts/con
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Centre } from './Form.styled.jsx'
 
 
 const ContactForm = () => {
@@ -10,7 +11,7 @@ const ContactForm = () => {
     const [addContact, { isSuccess: isAdded }] = useAddContactMutation();
 
     const [name, setName] = useState('');
-    const [phone, setPhone] = useState('');
+    const [number, setPhone] = useState('');
 
     const onAddNewContact = evt => {
         evt.preventDefault();
@@ -21,7 +22,7 @@ const ContactForm = () => {
             alert(`${name} is already in contacts`);
         } else {
             reset();
-            addContact({name, phone});
+            addContact({name, number});
         }
     };
 
@@ -54,7 +55,7 @@ const ContactForm = () => {
                     <Form.Control
                         type="tel"
                         name="phone"
-                        value={phone}
+                        value={number}
                         placeholder="Enter number"
                         onChange={evt => setPhone(evt.target.value)}
                         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -62,10 +63,11 @@ const ContactForm = () => {
                         required
                     />
                 </Form.Group>
-
+                <Centre>
                 <Button variant="primary" type="submit">
                     Add contact
                 </Button>
+                </Centre>
             </Form>
         </div>
     )

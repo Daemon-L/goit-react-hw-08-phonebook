@@ -29,3 +29,10 @@ export const Button = styled.button`
         background-color: #7ea3e9;
     }
 `;
+
+export const Centre = styled.div`
+    /* padding: 24px; */
+    
+    text-align: center;
+    
+`;

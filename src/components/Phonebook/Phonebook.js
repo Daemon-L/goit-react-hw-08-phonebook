@@ -1,5 +1,6 @@
 import React from "react";
-import { Container, Error, Text } from '../../App.styled.jsx';
+import { Container, Error, Text } from './Phonebook.styled.jsx';
+
 import ContactForm from '../ContactForm/Form';
 import ContactsList from '../ContactList/ContactsList';
 import Filter from '../ContactsFilter/Filter';
@@ -7,7 +8,7 @@ import Loader from '../Loader/Loader.jsx';
 
 import { useFetchContactsQuery } from "../../redux/contacts/contactsApi";
 
-export const Phonebook = () => {
+export const Contacts = () => {
     const { isError, error, isFetching} = useFetchContactsQuery();
       
     return (

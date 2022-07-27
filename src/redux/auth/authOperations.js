@@ -28,15 +28,37 @@ const logIn = createAsyncThunk('auth/login', async cridentials => {
   } catch (error) {}
 });
 
-const logOut = createAsyncThunk('auth/logout', async () => {
+const logOut = createAsyncThunk('auth/logout', async() => {
   try {
     await axios.post('/users/logout');
     token.unset();
   } catch (error) {}
 });
 
+// *****************************************************
+const fetchCurrentUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkIPI) => {
+    const state = thunkIPI.getState()
+    const persistedToken = state.auth.token;
+  
+    if (persistedToken === null) {
+      console.log('token отсутстыует уходим из fetchCurrentUser');
+      return thunkIPI.rejectWithValue(5);
+    }
+
+    token.set(persistedToken);
+    try {
+      const {data} = await axios.get('users/current');
+      return data;
+    } catch (error) {}
+  }
+);
+// *****************************************************
+
 export const authOperations = {
-    register,
-    logIn,
-    logOut,
+  register,
+  logIn,
+  logOut,
+  // fetchCurrentUser,
 };

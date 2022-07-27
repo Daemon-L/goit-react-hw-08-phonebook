@@ -1,6 +1,6 @@
-import { Text } from './UserMenu.styled.jsx'
+import { Text, MenuConteiner } from './UserMenu.styled.jsx'
 import Button from 'react-bootstrap/Button';
-import { ContactItem, } from '../../components/ContactList/ContactList.styled.jsx'
+
 
 import { useDispatch, useSelector } from "react-redux";
 import { authOperations } from '../../redux/auth/authOperations';
@@ -11,12 +11,12 @@ const UserMenu = () => {
     const name = useSelector(authSelectors.getUsername);
 
     return (
-        <ContactItem>
-            <Text>Welcom, {name}!</Text>
+        <MenuConteiner>
+            <Text>welcom, {name}</Text>
             <Button variant="primary" type="button" onClick={() => dispatch(authOperations.logOut())}>
                 Logout
             </Button>
-        </ContactItem>
+        </MenuConteiner>
     );
 
 };

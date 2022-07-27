@@ -4,17 +4,21 @@ export const ContactItem = styled.li`
     display: flex;
     justify-content: space-between;
     padding: 6px;
-    width: 350px; 
+    /* width: 350px;  */
+
 `;
 
 export const Button = styled.button`
     font-weight: 700;
-    border: 2px solid gray;
+    border: 2px solid #0d6efd;
     border-radius: 4px;
     cursor: pointer;
+    color:#0d6efd;
+    margin-left: 16px;
     
     :hover {
-        background-color: #7ea3e9;
+        background-color: #0d6efd;
+        color:#fff;
     }
 `;
 

@@ -18,6 +18,7 @@ const persistConfig = {
   key: 'root',
   version: 1,
   storage,
+  // whitelist: ['token']
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -50,5 +51,3 @@ setupListeners(store.dispatch);
 
 export const persistor = persistStore(store);
 export default store;
-
-

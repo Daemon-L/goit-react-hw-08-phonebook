@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import { useCallback, useState } from "react";
 
 import { useDispatch } from "react-redux";
-import { loginThunk } from '../redux/auth/authSlice';
+// import { loginThunk } from '../redux/auth/authSlice';
 
 import { authOperations } from '../redux/auth/authOperations';
 

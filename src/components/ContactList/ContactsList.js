@@ -17,10 +17,10 @@ const ContactsList = () => {
     return (
         <ContactList>
             {data.map(
-                ({ id, name, phone }) =>
+                ({ id, name, number }) =>
                 name.toLowerCase().indexOf(filter.toLowerCase()) !== -1 && (
                     <ContactItem key={id}>
-                        <Text>{name}: {phone}</Text>
+                        <Text>{name}: {number}</Text>
                         <Button type="button" onClick={() => removeContact(id)}>Delete</Button>
                     </ContactItem>
                 )
