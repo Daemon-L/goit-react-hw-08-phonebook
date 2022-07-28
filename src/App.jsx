@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { Container } from './App.styled';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authOperations } from './redux/auth/authOperations';
 
 import { Routes, Route, Navigate } from "react-router-dom";
-
+import authSelectors from "./redux/auth/authSelectors";
 import AppBar from "./components/AppBar/AppBar";
 
 import Home from './pages/Home';
@@ -18,6 +18,10 @@ import PublicRoute from './components/UserMenu/PublicRoute';
 export const App = () => {
 
     const dispatch = useDispatch();
+    const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
+    // console.log(isFetchingCurrentUser);
+
+
     // const auth = useSelector(state=>state.auth)
 
     useEffect(() => {
@@ -25,6 +29,7 @@ export const App = () => {
     }, [dispatch]);
 
     return (
+        !isFetchingCurrentUser && (
             <Container>
                 <AppBar />
                 <Routes>
@@ -59,5 +64,6 @@ export const App = () => {
                
                 </Routes>
             </Container>
+        )
     );
 };
