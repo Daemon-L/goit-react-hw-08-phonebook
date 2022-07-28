@@ -27,8 +27,9 @@ export const App = () => {
     useEffect(() => {
         dispatch(authOperations.fetchCurrentUser());
     }, [dispatch]);
-
+    // console.log('sgsgsg');
     return (
+
         !isFetchingCurrentUser && (
             <Container>
                 <AppBar />

@@ -15,6 +15,7 @@ const token = {
 const register = createAsyncThunk('auth/register', async cridentials => {
   try {
     const { data } = await axios.post('/users/signup', cridentials);
+
     token.set(data.token);
     return data;
   } catch (error) {}
@@ -38,17 +39,20 @@ const logOut = createAsyncThunk('auth/logout', async() => {
 const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkIPI) => {
+    // console.log("test3" )
     const state = thunkIPI.getState()
     const persistedToken = state.auth.token;
+    // console.log(persistedToken )
 
     if (persistedToken === null) {
-      console.log('token отсутстыует уходим из fetchCurrentUser');
-      return thunkIPI.rejectWithValue(5);
+      // console.log('token отсутстыует уходим из fetchCurrentUser');
+      return thunkIPI.rejectWithValue('reject');
     }
 
     token.set(persistedToken);
     try {
-      const {data} = await axios.get('users/current');
+      const { data } = await axios.get('users/current');
+      // console.log("test2", data )
       return data;
     } catch (error) {}
   }
